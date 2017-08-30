@@ -13,7 +13,7 @@ So far we have tested on the following datasets:
 
 | Name | Info | Download |
 | --- | --- | --- |
-| One-hundred plant species leaves data set Data Set | [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/One-hundred+plant+species+leaves+data+set) | [100 leaves plant species.zip](https://archive.ics.uci.edu/ml/machine-learning-databases/00241/100%20leaves%20plant%20species.zip) |
+| One-hundred plant species leaves data set | [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/One-hundred+plant+species+leaves+data+set) | [100 leaves plant species.zip](https://archive.ics.uci.edu/ml/machine-learning-databases/00241/100%20leaves%20plant%20species.zip) |
 
 ## Learned Contexts
 
