@@ -1,0 +1,7 @@
+# OSX
+.DS_Store
+
+# 100-leaves-plant-species
+100-leaves-plant-species/data
+100-leaves-plant-species/*.txt
+100-leaves-plant-species/*.pdf
