@@ -27,4 +27,6 @@ function [X, y, labels] = parseRawData(filename, n)
 
     fclose(fid);
 
+    labels = labels';
+
 end

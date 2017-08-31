@@ -7,20 +7,21 @@ function [Xtrain, ytrain, Xval, yval, Xtest, ytest] = partitionFeatures(X, y, la
     Xtrain = Xval = Xtest = [];
     ytrain = yval = ytest = [];
 
-    c = size(labels, 2);
+    c = size(labels, 1);
 
-    tallys = zeros(size(labels, 2), 1);
+    tallys = [labels, zeros(c, 1)];
     for i = 1:size(y, 1)
-        tallys(y(i)) = tallys(y(i)) + 1;
+        idx = tallys(:, 1) == y(i);
+        tallys(:, 2) = tallys(:, 2) + idx;
     endfor
 
     for t = 1:size(tallys, 1)
-        nTrain = round(6 * tallys(t) / 10);
-        nVal = round((tallys(t) - nTrain) / 2);
+        nTrain = round(6 * tallys(t, 2) / 10);
+        nVal = round((tallys(t, 2) - nTrain) / 2);
 
         % Find indexes in y that match current tally index. Filter class
         % samples from y and X.
-        classIdxs = y(:, 1) == t;
+        classIdxs = y(:, 1) == tallys(t, 1);
         yclass = y(classIdxs, :);
         Xclass = X(classIdxs, :);
 
@@ -34,7 +35,7 @@ function [Xtrain, ytrain, Xval, yval, Xtest, ytest] = partitionFeatures(X, y, la
         ytrain = [ytrain; yclass(1:nTrain, :)];
         Xval = [Xval; Xclass(nTrain+1:nTrain+nVal, :)];
         yval = [yval; yclass(nTrain+1:nTrain+nVal, :)];
-        Xtest = [Xtest; Xclass(nTrain+nVal+1:tallys(t), :)];
-        ytest = [ytest; yclass(nTrain+nVal+1:tallys(t), :)];
+        Xtest = [Xtest; Xclass(nTrain+nVal+1:tallys(t, 2), :)];
+        ytest = [ytest; yclass(nTrain+nVal+1:tallys(t, 2), :)];
     endfor
 end

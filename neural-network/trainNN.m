@@ -5,7 +5,7 @@ function [nn_params] = ...
     %  value to see how more training helps.
     options = optimset('MaxIter', 1000);
 
-    num_labels = size(labels, 2);
+    num_labels = size(labels, 1);
 
     input_layer_size = size(X, 2);
 
